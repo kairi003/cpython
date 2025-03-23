@@ -209,6 +209,7 @@ aliases = {
     'ms932'              : 'cp932',
     'mskanji'            : 'cp932',
     'ms_kanji'           : 'cp932',
+    'windows_31j'        : 'cp932',
 
     # cp949 codec
     '949'                : 'cp949',
@@ -240,6 +241,7 @@ aliases = {
     'ks_c_5601_1987'     : 'euc_kr',
     'ksx1001'            : 'euc_kr',
     'ks_x_1001'          : 'euc_kr',
+    'cseuckr'            : 'euc_kr',
 
     # gb18030 codec
     'gb18030_2000'       : 'gb18030',

@@ -8,21 +8,23 @@ extern "C" {
 #  error "this header requires Py_BUILD_CORE define"
 #endif
 
+#include "pycore_structs.h"       // _PyStackRef
+
 extern void _PyTuple_MaybeUntrack(PyObject *);
 extern void _PyTuple_DebugMallocStats(FILE *out);
 
 /* runtime lifecycle */
 
 extern PyStatus _PyTuple_InitGlobalObjects(PyInterpreterState *);
-extern void _PyTuple_Fini(_PyFreeListState *);
 
 
 /* other API */
 
 #define _PyTuple_ITEMS(op) _Py_RVALUE(_PyTuple_CAST(op)->ob_item)
 
-extern PyObject *_PyTuple_FromArray(PyObject *const *, Py_ssize_t);
-extern PyObject *_PyTuple_FromArraySteal(PyObject *const *, Py_ssize_t);
+PyAPI_FUNC(PyObject *)_PyTuple_FromArray(PyObject *const *, Py_ssize_t);
+PyAPI_FUNC(PyObject *)_PyTuple_FromStackRefStealOnSuccess(const union _PyStackRef *, Py_ssize_t);
+PyAPI_FUNC(PyObject *)_PyTuple_FromArraySteal(PyObject *const *, Py_ssize_t);
 
 typedef struct {
     PyObject_HEAD
